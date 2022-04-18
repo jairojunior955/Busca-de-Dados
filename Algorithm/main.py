@@ -27,6 +27,22 @@ def BuscaBinaria(vetor, meio, inicio, fim, alvo, i):
         return BuscaBinaria(vetor, meio, meio+1, fim, alvo, i)
 
 
+def buscaTabelaFrequencia(vetor, alvo,j=1):
+  if(alvo> len(vetor)): return -1
+  freq = []
+  for i in range(len(vetor)):
+    freq.append(0)
+  for i in range(len(vetor)):
+    freq[vetor[i]]+= 1
+
+  if (freq[alvo] > 0):
+    j+=1
+    print(f"iteração numero {j}")
+    return alvo
+  else:
+    return -1
+
+
 vetor = []
 for i in range(0, 1001):
     vetor.append(i)
@@ -41,9 +57,11 @@ print("___________________________")
 print("LINEAR SEARCH")
 alvo=500
 linearSearch(vetor, alvo)
+
 print("___________________________")
 alvo=200
 linearSearch(vetor, alvo)
+
 print("___________________________")
 alvo=1001
 linearSearch(vetor, alvo)
@@ -51,10 +69,26 @@ linearSearch(vetor, alvo)
 
 print("___________________________")
 print("BINARY SEARCH")
+alvo= 500
 BuscaBinaria(vetor, meio, inicio, fim, alvo, i)
+
 print("___________________________")
 alvo = 200
 BuscaBinaria(vetor, meio, inicio, fim, alvo, i)
+
 print("___________________________")
 alvo = 1001
 BuscaBinaria(vetor, meio, inicio, fim, alvo, i)
+
+print("___________________________")
+print("Frequency table search")
+
+buscaTabelaFrequencia(vetor, 500)
+
+print("___________________________")
+
+buscaTabelaFrequencia(vetor, 200)
+
+print("___________________________")
+
+buscaTabelaFrequencia(vetor, 1001)
