@@ -27,20 +27,24 @@ def BuscaBinaria(vetor, meio, inicio, fim, alvo, i):
         return BuscaBinaria(vetor, meio, meio+1, fim, alvo, i)
 
 
-def buscaTabelaFrequencia(vetor, alvo,j=1):
-  if(alvo> len(vetor)): return -1
-  freq = []
-  for i in range(len(vetor)):
-    freq.append(0)
-  for i in range(len(vetor)):
-    freq[vetor[i]]+= 1
+def buscaTabelaFrequencia(vetor, alvo, j=1):
+    if alvo > len(vetor)-1:
+        print(f"iteração numero {j}")
+        print("{} Valor não encontrado".format(alvo))
+        return -1
+    freq = []
+    for i in range(len(vetor)):
+        freq.append(0)
+    for i in range(len(vetor)):
+        freq[vetor[i]] += 1
 
-  if (freq[alvo] > 0):
-    j+=1
-    print(f"iteração numero {j}")
-    return alvo
-  else:
-    return -1
+    if freq[alvo] > 0:
+        j += 1
+        print(f"iteração numero {j}")
+        print(alvo)
+        return alvo
+    else:
+        return -1
 
 
 vetor = []
